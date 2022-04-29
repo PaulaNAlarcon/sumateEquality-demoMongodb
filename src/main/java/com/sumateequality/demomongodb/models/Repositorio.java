@@ -19,14 +19,13 @@ public class Repositorio {
     
     private String repo_name;
     private String full_name;
-    private Date created; //@Temporal? Pattern?
+    private Date created; 
     private String language;
     private String username;
     private Integer stars;
     private Integer forks;
     private Integer subscribers;
     private Integer open_issues;
-    private Integer days_alive;
     private Integer age_days;
     
     public String getId() {
@@ -109,13 +108,11 @@ public class Repositorio {
         this.open_issues = open_issues;
     }
 
-    public Integer getDays_alive() {
-        return days_alive;
+    public Integer getAge_days() {
+        return age_days;
     }
 
-    public void setDays_alive(Integer days_alive) {
-        this.days_alive = days_alive;
+    public void setAge_days(Integer age_days) {
+        this.age_days = age_days;
     }
-    
-    
 }

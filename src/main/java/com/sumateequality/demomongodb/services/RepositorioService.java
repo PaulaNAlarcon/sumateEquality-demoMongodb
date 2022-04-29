@@ -3,8 +3,10 @@ package com.sumateequality.demomongodb.services;
 
 import com.sumateequality.demomongodb.models.Repositorio;
 import com.sumateequality.demomongodb.repositories.RepositorioRepository;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,11 @@ public class RepositorioService {
     private RepositorioRepository repositorioRepository;
     
     public Repositorio save(Repositorio repositorio){
+        Date hoy = new Date();
+        long dif = hoy.getTime() - repositorio.getCreated().getTime();
+        TimeUnit time = TimeUnit.DAYS; 
+        Integer days = Math.toIntExact(time.convert(dif, TimeUnit.MILLISECONDS));
+        repositorio.setAge_days(days);
         return repositorioRepository.save(repositorio);
     }
     
